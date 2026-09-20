@@ -1294,6 +1294,29 @@ body.cal-open{overflow:hidden}
   .bk-dlg{width:100vw;max-width:100vw;height:100vh;height:100dvh;max-height:none;margin:0;border-radius:0;border-width:0}
   .bk-dlg-date{display:none}
 }
+
+/* ================================================================
+   ROUND 11 — phone text fixes. Text no longer spills out of, or breaks awkwardly inside, its box.
+   Phones only (max-width 760px); desktop and tablet are untouched. Existing tokens only.
+   ================================================================ */
+@media (max-width:760px){
+  /* frame bars grow with their text instead of spilling out of a fixed 44px bar; titles keep their size, notes drop to 14px */
+  .frame-bar{height:auto;min-height:44px;flex-wrap:wrap;column-gap:12px;row-gap:2px;padding:10px 16px;font-size:var(--fs-14);line-height:1.4;overflow-wrap:anywhere}
+  .frame-bar b{font-size:var(--fs-20);white-space:nowrap}
+  .frame-bar .sp{flex:1 0 8px}
+  /* the label row above section headings: pills and labels stay whole, and the pill drops below if the row is full */
+  .sh .label{flex-wrap:wrap;row-gap:8px}
+  .pill{white-space:nowrap;font-size:var(--fs-14);padding:0 10px}
+  /* "2–3 weeks" stays whole */
+  .ecard .dur b{white-space:nowrap}
+  /* tables inside horizontal scrollers: columns wide enough to read, and headings never split at a hyphen */
+  .scroll-x .tbl th{white-space:nowrap}
+  .scroll-x .tbl td{min-width:150px}
+  /* previous / next links keep the arrow with the last word */
+  .case-nav a{text-wrap:balance}
+  /* addresses wrap instead of being clipped */
+  .facts a,a[href^="mailto:"]{overflow-wrap:anywhere}
+}
 </style>
 </head>
 <body>
