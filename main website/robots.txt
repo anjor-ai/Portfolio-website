@@ -1,0 +1,5 @@
+# Everything is public and meant to be found.
+User-agent: *
+Allow: /
+
+Sitemap: https://anjor-tank.vercel.app/sitemap.xml
